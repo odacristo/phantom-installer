@@ -54,16 +54,8 @@ We setup shortcuts for an easy administration (put the command on the console an
 
 ## Administration - Security for Masternodes
 
-We setup shortcuts for an easy administration (put the command on the console and press enter).<br/>
-**We recommend that you only activate the Masternode GUI when you need it.**
-
-Here for example (will work for all):
-
-|Service          |Command         |
-|-----------------|----------------|
-|Northern Enable  |northern-on     |
-|Northern Disable |northern-off    |
-|Northern Status  |northern-status |
+**We recommend that you only activate the Masternode GUI when you need it.**<br>
+Start and stop the relevant frontend container for this with Portainer.
 
 ## Contact information
 
