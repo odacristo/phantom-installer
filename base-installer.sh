@@ -76,7 +76,7 @@ function install_base_system() {
   echo -e "----------------------------"
   echo -e "Installing dependencies...  "
   echo -e "----------------------------"
-  DEBIAN_FRONTEND=noninteractive apt install -q -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  DEBIAN_FRONTEND=noninteractive apt install -q -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common sendmail mailutils mutt
   clear
   echo -e "---------------------------------------"
   echo -e "Starting the Docker installation...    "

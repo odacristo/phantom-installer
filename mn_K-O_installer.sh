@@ -58,20 +58,24 @@ function os_checks() {
   fi
 }
 
+function mail_address() {
+  echo -e "${RED}Enter your email address for backup and press Enter:${NC}"
+  read -e MAIL_ADDRESS
+clear
+}
+
 function northern_inst() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install Northern...${NC}   "
   echo -e "-----------------------------------"
   docker volume create --name northern
   docker pull smai/phantom:latest
-  docker run --restart always -v northern:/root/phantom/conf phantom:latest
+  docker run -d --restart always -v northern:/root/phantom/conf:ro --name northern-backend smai/phantom:latest
   docker pull smai/northern_phantom:latest
-  docker run --restart always -v northern:/root/phantom/conf northern_phantom:latest
+  docker run -d --restart always -p 8080:8080 -v northern:/root/phantom-hosting/conf --name northern-frontend smai/northern_phantom:latest
   ufw allow 8080/tcp comment "Northern GUI" >/dev/null
-  echo "alias northern-on='docker start northern_phantom'" >> .bash_aliases
-  echo "alias northern-off='docker stop northern_phantom'" >> .bash_aliases
-  echo "alias northern-status='docker ps -f name=northern_phantom'" >> .bash_aliases
-  source ~/.bash_aliases
+  mutt -s "Northern MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "* 12 * * * mutt -s 'Northern MN Backup' $MAIL_ADDRESS -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
   echo -e "${GREEN}done...${NC}"
   clear
 }
@@ -89,6 +93,7 @@ function information() {
 function northern() {
   clear
   os_checks
+  mail_address
   northern_inst
   information
   exit 0

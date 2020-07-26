@@ -20,7 +20,8 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 * Fully self-sufficient
 * Minimal memory and disk usage (in the 10s of megabytes vs. gigabytes)
 * Hot-swap with live node daemons, no restart required
-* Select any IP address, no static IP required
+* No static IP required
+* Automated e-mail backup from the masternode config file
 
 # Masternodes K - O
 
