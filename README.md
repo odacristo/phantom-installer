@@ -32,7 +32,7 @@ The setup consists of two parts. The base system and the master nodes.
 
 ## Administration - Security
 
-We setup shortcuts for an easy administration (put the command on the console and press enter).
+We setup shortcuts for an easy administration (put the command on the console and press enter).<br/>
 **We recommend that you only activate the Portainer GUI when you need it.**
 
 |Service          |Command         |
