@@ -6,7 +6,7 @@ The setup is divided into the basic installation and the master node installatio
 
 ## Donation
 
-Please donate for our project that we can continue to run it actively and add as many masternodes as possible.
+**Please donate for our project that we can continue to run it actively and add as many masternodes as possible.**
 
 BTC: 3BZ1GbsELcXXYDYu88RQeAX7SB5p9RmU6t
 
