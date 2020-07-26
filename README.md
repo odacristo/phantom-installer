@@ -60,15 +60,15 @@ Start and stop the relevant frontend container for this with Portainer.
 
 ## 3. How to use it
 
-[User Guide] (https://gossip.freshdesk.com/support/solutions/folders/43000571129)
+[User Guide](https://gossip.freshdesk.com/support/solutions/folders/43000571129)
 
 ### Port list for the GUI
 
-[Port List] (https://gossip.freshdesk.com/support/solutions/articles/43000587008-ports-for-the-web-gui)
+[Port List](https://gossip.freshdesk.com/support/solutions/articles/43000587008-ports-for-the-web-gui)
 
 ### The complete Phantom Hosting WiKi
 
-[Complete WiKi] (https://gossip.freshdesk.com/support/solutions/43000367536)
+[Complete WiKi](https://gossip.freshdesk.com/support/solutions/43000367536)
 
 ## Contact information
 
