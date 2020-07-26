@@ -62,12 +62,15 @@ function northern_inst() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install Northern...${NC}   "
   echo -e "-----------------------------------"
+  docker volume create --name northern
   docker pull smai/phantom:latest
+  docker run --restart always -v northern:/root/phantom/conf phantom:latest
   docker pull smai/northern_phantom:latest
+  docker run --restart always -v northern:/root/phantom/conf northern_phantom:latest
   ufw allow 8080/tcp comment "Northern GUI" >/dev/null
-  echo "alias northern-on='docker start '" >> .bash_aliases
-  echo "alias northern-off='docker stop '" >> .bash_aliases
-  echo "alias northern-status='docker ps -f name= '" >> .bash_aliases
+  echo "alias northern-on='docker start northern_phantom'" >> .bash_aliases
+  echo "alias northern-off='docker stop northern_phantom'" >> .bash_aliases
+  echo "alias northern-status='docker ps -f name=northern_phantom'" >> .bash_aliases
   source ~/.bash_aliases
   echo -e "${GREEN}done...${NC}"
   clear

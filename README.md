@@ -22,13 +22,17 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 * Hot-swap with live node daemons, no restart required
 * Select any IP address, no static IP required
 
+# Masternodes K - O
+
+* Northern
+
 # Setup
 
 The setup consists of two parts. The base system and the master nodes.
 
 ## Base System
 
-[Install Guide](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
+[Install Guide Base System](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
 
 ## Administration - Security
 
@@ -43,6 +47,23 @@ We setup shortcuts for an easy administration (put the command on the console an
 |Portainer Status |portainer-status|
 |Portainer On     |portainer-on    |
 |Portainer Off    |portainer-off   |
+
+## Masternodes
+
+[Install Guide Masternodes] (https://gossip.freshdesk.com/a/solutions/articles/43000587002)
+
+## Administration - Security for Masternodes
+
+We setup shortcuts for an easy administration (put the command on the console and press enter).<br/>
+**We recommend that you only activate the Masternode GUI when you need it.**
+
+Here for example (will work for all):
+
+|Service          |Command         |
+|-----------------|----------------|
+|Northern Enable  |northern-on     |
+|Northern Disable |northern-off    |
+|Northern Status  |northern-status |
 
 ## Contact information
 
