@@ -24,11 +24,13 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 # Setup
 
+The setup consists of two parts. The base system and the master nodes.
+
 ## Base System
 
 [Install Guide](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
 
-### Administration - Security
+## Administration - Security
 
 We setup shortcuts for an easy administration (put the command on the console and press enter). **We recommend that you only activate the Portainer GUI when you need it.**
 
