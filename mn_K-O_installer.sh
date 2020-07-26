@@ -66,16 +66,20 @@ clear
 
 function northern_inst() {
   echo -e "-----------------------------------"
-  echo -e "${GREEN}Install Northern...${NC}   "
+  echo -e "${GREEN}Install "$MN"...${NC}   "
   echo -e "-----------------------------------"
-  docker volume create --name northern
+  mn=northern
+  MN=Northern
+  docker volume create --name "$mn"
   docker pull smai/phantom:latest
-  docker run -d --restart always -v northern:/root/phantom/conf:ro --name northern-backend smai/phantom:latest
-  docker pull smai/northern_phantom:latest
-  docker run -d --restart always -p 8080:8080 -v northern:/root/phantom-hosting/conf --name northern-frontend smai/northern_phantom:latest
-  ufw allow 8080/tcp comment "Northern GUI" >/dev/null
-  mutt -s "Northern MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null
-  crontab -l | { cat; echo "* 12 * * * mutt -s 'Northern MN Backup' $MAIL_ADDRESS -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  docker run -d --restart always -v "$mn":/root/phantom/conf:ro --name "$mn"-backend smai/phantom:latest
+  docker pull smai/"$mn"_phantom:latest
+  docker run -d --restart always -p 8080:8080 -v "$mn":/root/phantom-hosting/conf --name "$mn"-frontend smai/"$mn"_phantom:latest
+  ufw allow 8080/tcp comment ""$MN" GUI" >/dev/null
+  touch ~/.muttrc
+  echo 'set from='$MAIL_ADDRESS'' > ~/.muttrc
+  mutt -s "$MN MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/"$mn"/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "* 12 * * * mutt -s '"$MN" MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/"$mn"/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
   echo -e "${GREEN}done...${NC}"
   clear
 }
