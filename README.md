@@ -28,6 +28,19 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 [Install Guide](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
 
+### Administration - Security
+
+We setup shortcuts for an easy administration (put the shortcut on the console and press enter). **We recommend that you only activate the Portainer GUI when you need it.**
+
+|Service          |Command         |
+|-----------------|----------------|
+|Firewall Status  |fw-status       |
+|Firewall Enable  |fw-on           |
+|Firewall Disable |fw-off          |
+|Portainer Status |portainer-status|
+|Portainer On     |portainer-on    |
+|Portainer Off    |portainer-off   |
+
 ## Contact information
 
 * email: dev@gossipcoin.net
