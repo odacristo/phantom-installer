@@ -1,6 +1,8 @@
-# Phantom Masternodes - Base Installation
+# Phantom Masternodes
 
-Here the base what we need to host comfortable Phantom Masternodes.
+Here you will find the installation scripts for a comfortable setup for the Phantom Masternode solution.
+
+The setup is divided into the basic installation and the master node installation for each project. Everything is script based and you have the whole system functional in 10 minutes. Please install it on a newly installed Ubuntu 20.04 server.
 
 ## Donation
 
@@ -21,6 +23,8 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 * Select any IP address, no static IP required
 
 # Setup
+
+## Base System
 
 [Install Guide](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
 
