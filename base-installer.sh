@@ -123,14 +123,14 @@ function create_aliase() {
   echo -e "----------------------"
   echo -e "Create Shortcuts...   "
   echo -e "----------------------"
-  touch ~/.bash_aliases >/dev/null 2>&1 >/dev/null 2>&1
+  touch ~/.bash_aliases
   echo "alias fw-on='ufw enable'" >> .bash_aliases
   echo "alias fw-off='ufw disable'" >> .bash_aliases
   echo "alias fw-status='ufw status'" >> .bash_aliases
   echo "alias portainer-on='docker start portainer'" >> .bash_aliases
   echo "alias portainer-off='docker stop portainer'" >> .bash_aliases
   echo "alias portainer-status='docker ps -f name=portainer'" >> .bash_aliases
-  source ~/.bash_aliases >/dev/null 2>&1
+  source ~/.bash_aliases
   echo -e "${GREEN}done...${NC}"
   clear
 }
