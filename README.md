@@ -29,13 +29,13 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 # Setup
 
-The setup consists of two parts. The base system and the master nodes.
+The setup consists of two parts. The base system and the masternodes.
 
-## Base System
+## 1. Base System
 
 [Install Guide Base System](https://gossip.freshdesk.com/a/solutions/articles/43000587001)
 
-## Administration - Security
+### Security
 
 We setup shortcuts for an easy administration (put the command on the console and press enter).<br/>
 **We recommend that you only activate the Portainer GUI when you need it.**
@@ -49,14 +49,26 @@ We setup shortcuts for an easy administration (put the command on the console an
 |Portainer On     |portainer-on    |
 |Portainer Off    |portainer-off   |
 
-## Masternodes
+## 2. Masternodes
 
 [Install Guide Masternodes](https://gossip.freshdesk.com/a/solutions/articles/43000587002)
 
-## Administration - Security for Masternodes
+### Security for Masternodes
 
 **We recommend that you only activate the Masternode GUI when you need it.**<br>
 Start and stop the relevant frontend container for this with Portainer.
+
+## 3. How to use it
+
+[User Guide] (https://gossip.freshdesk.com/support/solutions/folders/43000571129)
+
+### Port list for the GUI
+
+[Port List] (https://gossip.freshdesk.com/support/solutions/articles/43000587008-ports-for-the-web-gui)
+
+### The complete Phantom Hosting WiKi
+
+[Complete WiKi] (https://gossip.freshdesk.com/support/solutions/43000367536)
 
 ## Contact information
 
