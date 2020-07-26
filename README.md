@@ -30,7 +30,7 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 ### Administration - Security
 
-We setup shortcuts for an easy administration (put the shortcut on the console and press enter). **We recommend that you only activate the Portainer GUI when you need it.**
+We setup shortcuts for an easy administration (put the command on the console and press enter). **We recommend that you only activate the Portainer GUI when you need it.**
 
 |Service          |Command         |
 |-----------------|----------------|
