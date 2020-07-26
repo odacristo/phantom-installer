@@ -50,7 +50,7 @@ We setup shortcuts for an easy administration (put the command on the console an
 
 ## Masternodes
 
-[Install Guide Masternodes] (https://gossip.freshdesk.com/a/solutions/articles/43000587002)
+[Install Guide Masternodes](https://gossip.freshdesk.com/a/solutions/articles/43000587002)
 
 ## Administration - Security for Masternodes
 
