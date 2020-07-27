@@ -85,6 +85,7 @@ function northern() {
 }
 
 function information() {
+  rm /root/*installer.sh >/dev/null 2>&1
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   echo -e "${GREEN}The Masternode installation was successfull! Good job!${NC}"
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"

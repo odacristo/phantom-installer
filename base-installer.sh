@@ -138,7 +138,7 @@ function create_aliase() {
 }
 
 function information() {
-  rm /root/base-installer.sh >/dev/null 2>&1
+  rm /root/*installer.sh >/dev/null 2>&1
   echo -e "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   echo -e "${GREEN}The basis installation for Phantom Masternodes was successfull! Good job!${NC}"
   echo -e "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
