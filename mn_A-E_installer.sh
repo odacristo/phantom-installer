@@ -76,7 +76,7 @@ function bare() {
   touch ~/.muttrc
   echo 'set from="Bare Masternode"' > ~/.muttrc
   mutt -s "Bare MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/bare/_data/masternode.txt < /dev/null
-  crontab -l | { cat; echo "* 12 * * * mutt -s 'Bare MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/bare/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  crontab -l | { cat; echo "1 12 * * * mutt -s 'Bare MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/bare/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
   echo -e "${GREEN}done...${NC}"
   clear
 }
