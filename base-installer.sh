@@ -89,9 +89,12 @@ function install_base_system() {
   echo -e "---------------------------------------"
   echo -e "Staring the Portainer installation...  "
   echo -e "---------------------------------------"
+  sleep 3
   docker volume create portainer_data
   sleep 2
   docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+  sleep 2
+  docker run -d --name watchtower --restart=always -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower
   export LC_ALL="en_US.UTF-8" >/dev/null 2>&1
   export LC_CTYPE="en_US.UTF-8" >/dev/null 2>&1
   locale-gen --purge >/dev/null 2>&1

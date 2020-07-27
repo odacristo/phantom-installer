@@ -14,14 +14,14 @@ ETH: 0xb35a35053ec81cce4fdc7df07432fa0d59dddf82
 
 GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
-# Feature
+# Features
 
-* No Linux knowledge needed
 * Fully self-sufficient
-* Minimal memory and disk usage (in the 10s of megabytes vs. gigabytes)
-* Hot-swap with live node daemons, no restart required
 * No static IP required
+* No Linux knowledge needed
 * Automated e-mail backup from the masternode config file
+* Minimal memory and disk usage (in the 10s of megabytes vs. gigabytes)
+* Auto Update - When we release updates, your installation is receiving the updates automatically
 
 # Masternodes K - O
 
@@ -29,7 +29,7 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 # Setup
 
-The setup consists of two parts. The base system and the masternodes.
+The setup consists of two parts. The base system and the masternode part.
 
 ## 1. Base System
 
