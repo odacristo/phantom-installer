@@ -74,6 +74,8 @@ function northern() {
   docker pull smai/"$mn"_phantom:latest
   docker run -d --restart always -p 8080:8080 -v "$mn":/root/phantom-hosting/conf --name "$mn"-frontend smai/"$mn"_phantom:latest
   ufw allow 8080/tcp comment ""$MN" GUI" >/dev/null
+  echo "alias "$mn"-conf='cd /var/lib/docker/volumes/"$mn"/_data/'" >> ~/.bash_aliases
+  source ~/.bash_aliases
   touch ~/.muttrc
   echo 'set from="'$MN' Masternode"' > ~/.muttrc
   mutt -s "$MN MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/"$mn"/_data/masternode.txt < /dev/null
