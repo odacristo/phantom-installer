@@ -72,7 +72,7 @@ function bare() {
   docker pull smai/"$mn"_be_phantom:0.0.1
   docker run -d --restart always -v "$mn":/root/phantom/conf:ro --name "$mn"-backend smai/"$mn"_be_phantom:0.0.1
   docker pull smai/"$mn"_fe_phantom:0.0.1
-  docker run -d --restart always -p 8080:8080 -v "$mn":/root/phantom-hosting/conf --name "$mn"-frontend smai/"$mn"_fe_phantom:0.0.1
+  docker run -d --restart always -p 8084:8084 -v "$mn":/root/phantom-hosting/conf --name "$mn"-frontend smai/"$mn"_fe_phantom:0.0.1
   ufw allow 8084/tcp comment ""$MN" GUI" >/dev/null
   echo "alias "$mn"-conf='cd /var/lib/docker/volumes/"$mn"/_data/'" >> ~/.bash_aliases
   touch ~/.muttrc
