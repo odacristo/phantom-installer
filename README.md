@@ -2,7 +2,8 @@
 
 Here you will find the installation scripts for a comfortable setup for the Phantom Masternode solution.
 
-The setup is divided into the basic installation and the master node installation for each project. Everything is script based and you have the whole system functional in 10 minutes. Please install it on a newly installed Ubuntu 20.04 server.
+The setup is divided into the basic installation and the master node installation for each project. Everything is script based and you have the whole system functional in 10 minutes.
+Please install it on a newly installed Ubuntu 20.04 server. All guides you will find in the [WiKi] (https://gossip.freshdesk.com/support/solutions/43000367536).
 
 ## Donation
 
@@ -23,7 +24,9 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 * Minimal memory and disk usage (in the 10s of megabytes vs. gigabytes)
 * Auto Update - When we release updates, your installation is receiving the updates automatically
 
-# Masternodes K - O
+# Hosted Masternodes
+
+## Masternodes K - O
 
 * Northern
 
@@ -62,7 +65,7 @@ Start and stop the relevant frontend container for this with Portainer.
 
 [User Guide](https://gossip.freshdesk.com/support/solutions/folders/43000571129)
 
-### Port list for the GUI
+### Port list for the Web Console
 
 [Port List](https://gossip.freshdesk.com/support/solutions/articles/43000587008-ports-for-the-web-gui)
 
