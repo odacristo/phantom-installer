@@ -133,12 +133,12 @@ function create_aliase() {
   echo "alias portainer-on='docker start portainer'" >> ~/.bash_aliases
   echo "alias portainer-off='docker stop portainer'" >> ~/.bash_aliases
   echo "alias portainer-status='docker ps -f name=portainer'" >> ~/.bash_aliases
-  source ~/.bash_aliases
   echo -e "${GREEN}done...${NC}"
   clear
 }
 
 function information() {
+  rm /root/base-installer.sh >/dev/null 2>&1
   echo -e "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   echo -e "${GREEN}The basis installation for Phantom Masternodes was successfull! Good job!${NC}"
   echo -e "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
