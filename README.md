@@ -3,7 +3,7 @@
 Here you will find the installation scripts for a comfortable setup for the Phantom Masternode solution.
 
 The setup is divided into the basic installation and the master node installation for each project. Everything is script based and you have the whole system functional in 10 minutes.
-Please install it on a newly installed Ubuntu 20.04 server. All guides you will find in the [WiKi] (https://gossip.freshdesk.com/support/solutions/43000367536).
+Please install it on a newly installed Ubuntu 20.04 server. All guides you will find in the [WiKi](https://gossip.freshdesk.com/support/solutions/43000367536).
 
 ## Donation
 
