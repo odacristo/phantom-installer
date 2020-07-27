@@ -66,8 +66,8 @@ function bare() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install "$MN"...${NC}   "
   echo -e "-----------------------------------"
-  local mn='bare'
-  local MN='Bare'
+  mn="bare"
+  MN="Bare"
   docker volume create --name "$mn"
   docker pull smai/"$mn"_be_phantom:0.0.1
   docker run -d --restart always -v "$mn":/root/phantom/conf:ro --name "$mn"-backend smai/"$mn"_be_phantom:0.0.1
