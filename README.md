@@ -26,6 +26,10 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 # Hosted Masternodes
 
+## Masternodes A - E
+
+* Bare
+
 ## Masternodes K - O
 
 * Northern
