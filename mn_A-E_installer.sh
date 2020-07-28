@@ -42,13 +42,16 @@ echo -e "${NC}"
 echo -e "${GREEN}Welcome to the Phantom Masternode Installation${NC}"
 echo -e ""
 PS3='Please enter your choice: '
-options=("BARE - Bare" "Exit")
+options=("BARE - Bare" "BitMoney" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
         "BARE - Bare")
             break
             ;;
+        "BitMoney")
+              bitmoney
+              ;;
         "Exit")
             exit 0
             ;;
@@ -81,6 +84,25 @@ function bare() {
   clear
 }
 
+function bitmoney_inst() {
+  echo -e "-----------------------------------"
+  echo -e "${GREEN}Install BitMoney...${NC}   "
+  echo -e "-----------------------------------"
+  docker volume create --name bitmoney
+  docker pull smai/bitmoney_be_phantom:0.0.1
+  docker run -d --restart always -v bitmoney:/root/phantom/conf:ro --name bitmoney-backend smai/bitmoney_be_phantom:0.0.1
+  docker pull smai/bitmoney_fe_phantom:0.0.1
+  docker run -d --restart always -p 8088:8088 -v bitmoney:/root/phantom-hosting/conf --name bitmoney-frontend smai/bitmoney_fe_phantom:0.0.1
+  ufw allow 8084/tcp comment "BitMoney GUI" >/dev/null
+  echo "alias bitmoney-conf='cd /var/lib/docker/volumes/bitmoney/_data/'" >> ~/.bash_aliases
+  touch ~/.muttrc
+  echo 'set from="BitMoney Masternode"' > ~/.muttrc
+  mutt -s "BitMoney MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/bitmoney/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "1 12 * * * mutt -s 'BitMoney MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/bitmoney/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo -e "${GREEN}done...${NC}"
+  clear
+}
+
 function information() {
   rm *installer.sh* >/dev/null 2>&1
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -98,3 +120,12 @@ mail_address
 bare
 information
 exit 0
+
+#BitMoney
+function bitmoney() {
+clear
+mail_address
+bitmoney_inst
+information
+exit 0
+}
