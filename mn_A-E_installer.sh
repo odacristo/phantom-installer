@@ -50,8 +50,8 @@ do
             break
             ;;
         "BitMoney")
-              bitmoney
-              ;;
+            bitmoney
+            ;;
         "Exit")
             exit 0
             ;;
