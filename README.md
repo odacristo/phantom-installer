@@ -29,6 +29,7 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 ## Masternodes A - E
 
 * Bare
+* Bitcoin Incognito
 
 ## Masternodes K - O
 
