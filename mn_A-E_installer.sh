@@ -42,15 +42,15 @@ echo -e "${NC}"
 echo -e "${GREEN}Welcome to the Phantom Masternode Installation${NC}"
 echo -e ""
 PS3='Please enter your choice: '
-options=("BARE - Bare" "BitMoney" "Exit")
+options=("BARE - Bare" "BitcoinIncognito" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
         "BARE - Bare")
             break
             ;;
-        "BitMoney")
-            bitmoney
+        "BitcoinIncognito")
+            xbi
             ;;
         "Exit")
             exit 0
@@ -84,21 +84,21 @@ function bare() {
   clear
 }
 
-function bitmoney_inst() {
+function xbi_inst() {
   echo -e "-----------------------------------"
-  echo -e "${GREEN}Install BitMoney...${NC}   "
+  echo -e "${GREEN}Install BitcoinIncognito...${NC}   "
   echo -e "-----------------------------------"
-  docker volume create --name bitmoney
-  docker pull smai/bitmoney_be_phantom:0.0.1
-  docker run -d --restart always -v bitmoney:/root/phantom/conf:ro --name bitmoney-backend smai/bitmoney_be_phantom:0.0.1
-  docker pull smai/bitmoney_fe_phantom:0.0.1
-  docker run -d --restart always -p 8088:8088 -v bitmoney:/root/phantom-hosting/conf --name bitmoney-frontend smai/bitmoney_fe_phantom:0.0.1
-  ufw allow 8084/tcp comment "BitMoney GUI" >/dev/null
-  echo "alias bitmoney-conf='cd /var/lib/docker/volumes/bitmoney/_data/'" >> ~/.bash_aliases
+  docker volume create --name xbi
+  docker pull smai/xbi_be_phantom:0.0.1
+  docker run -d --restart always -v xbi:/root/phantom/conf:ro --name xbi-backend smai/xbi_be_phantom:0.0.1
+  docker pull smai/xbi_fe_phantom:0.0.1
+  docker run -d --restart always -p 8089:8089 -v xbi:/root/phantom-hosting/conf --name xbi-frontend smai/xbi_fe_phantom:0.0.1
+  ufw allow 8084/tcp comment "Bitcoin Incognito GUI" >/dev/null
+  echo "alias xbi-conf='cd /var/lib/docker/volumes/xbi/_data/'" >> ~/.bash_aliases
   touch ~/.muttrc
-  echo 'set from="BitMoney Masternode"' > ~/.muttrc
-  mutt -s "BitMoney MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/bitmoney/_data/masternode.txt < /dev/null
-  crontab -l | { cat; echo "1 12 * * * mutt -s 'BitMoney MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/bitmoney/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo 'set from="Bitcoin Incognito Masternode"' > ~/.muttrc
+  mutt -s "Bitcoin Incognito MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/xbi/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "1 12 * * * mutt -s 'Bitcoin Incognito MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/xbi/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
   echo -e "${GREEN}done...${NC}"
   clear
 }
@@ -121,11 +121,11 @@ bare
 information
 exit 0
 
-#BitMoney
-function bitmoney() {
+#Bitcoin Incognito
+function xbi() {
 clear
 mail_address
-bitmoney_inst
+xbi_inst
 information
 exit 0
 }
