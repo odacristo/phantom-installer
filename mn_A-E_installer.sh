@@ -26,6 +26,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+function start_inst() {
 echo -e "${BLUE}"
 echo -e ""
 cat << 'EOF'
@@ -42,14 +43,14 @@ echo -e "${NC}"
 echo -e "${GREEN}Welcome to the Phantom Masternode Installation${NC}"
 echo -e ""
 PS3='Please enter your choice: '
-options=("BARE - Bare" "BitcoinIncognito" "Exit")
+options=("Bare" "Bitcoin-Incognito" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "BARE - Bare")
+        "Bare")
             break
             ;;
-        "BitcoinIncognito")
+        "Bitcoin-Incognito")
             xbi
             ;;
         "Exit")
@@ -58,6 +59,7 @@ do
         *) echo "Invalid option $REPLY";;
     esac
 done
+}
 
 function mail_address() {
   echo -e "${RED}Enter your email address for backup and press Enter:${NC}"
@@ -114,13 +116,6 @@ function information() {
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 }
 
-#Bare
-clear
-mail_address
-bare
-information
-exit 0
-
 #Bitcoin Incognito
 function xbi() {
 clear
@@ -129,3 +124,11 @@ xbi_inst
 information
 exit 0
 }
+
+#Bare
+start_inst
+clear
+mail_address
+bare
+information
+exit 0
