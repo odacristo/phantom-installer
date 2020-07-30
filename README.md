@@ -26,7 +26,7 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 # Hosted Masternodes
 
-## Masternodes A - E
+## Masternodes A - E + 1x2
 
 * 1x2
 * Absolute
