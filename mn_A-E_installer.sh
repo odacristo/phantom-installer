@@ -186,7 +186,7 @@ function information() {
 function onetwo() {
 clear
 mail_address
-"1x2"_inst
+onetwo_inst
 information
 exit 0
 }
