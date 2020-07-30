@@ -48,7 +48,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "1x2")
-            "1x2"
+            onetwo
             ;;
         "Absolute")
             abs
@@ -95,7 +95,7 @@ function bare() {
   clear
 }
 
-function "1x2"_inst() {
+function onetwo_inst() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install 1x2...${NC}   "
   echo -e "-----------------------------------"
@@ -183,7 +183,7 @@ function information() {
 }
 
 #1x2
-function "1x2"() {
+function onetwo() {
 clear
 mail_address
 "1x2"_inst
