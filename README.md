@@ -28,6 +28,9 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 
 ## Masternodes A - E
 
+* 1x2
+* Absolute
+* Aias
 * Bare
 * Bitcoin Incognito
 
