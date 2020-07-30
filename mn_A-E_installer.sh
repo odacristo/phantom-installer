@@ -183,10 +183,10 @@ function information() {
 }
 
 #1x2
-function abs() {
+function "1x2"() {
 clear
 mail_address
-1x2_inst
+"1x2"_inst
 information
 exit 0
 }
@@ -201,7 +201,7 @@ exit 0
 }
 
 #Aias
-function abs() {
+function aias() {
 clear
 mail_address
 aias_inst
