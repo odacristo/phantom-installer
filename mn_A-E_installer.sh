@@ -43,11 +43,20 @@ echo -e "${NC}"
 echo -e "${GREEN}Welcome to the Phantom Masternode Installation${NC}"
 echo -e ""
 PS3='Please enter your choice: '
-options=("Bare" "Bitcoin-Incognito" "Exit")
+options=("1x2" "Absolute" "Aias" "Bare" "Bitcoin-Incognito" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Bare")
+        "1x2")
+            1x2
+            ;;
+        "Absolute")
+            abs
+            ;;
+        "Aias")
+            aias
+            ;;			
+		"Bare")
             break
             ;;
         "Bitcoin-Incognito")
@@ -86,6 +95,63 @@ function bare() {
   clear
 }
 
+function 1x2_inst() {
+  echo -e "-----------------------------------"
+  echo -e "${GREEN}Install 1x2...${NC}   "
+  echo -e "-----------------------------------"
+  docker volume create --name 1x2
+  docker pull smai/1x2_be_phantom:0.0.1
+  docker run -d --restart always -v 1x2:/root/phantom/conf:ro --name 1x2-backend smai/1x2_be_phantom:0.0.1
+  docker pull smai/1x2_fe_phantom:0.0.1
+  docker run -d --restart always -p 8126:8126 -v 1x2:/root/phantom-hosting/conf --name 1x2-frontend smai/1x2_fe_phantom:0.0.1
+  ufw allow 8126/tcp comment "1x2 GUI" >/dev/null
+  echo "alias 1x2-conf='cd /var/lib/docker/volumes/1x2/_data/'" >> ~/.bash_aliases
+  touch ~/.muttrc
+  echo 'set from="1x2 Masternode"' > ~/.muttrc
+  mutt -s "1x2 MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/1x2/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "1 12 * * * mutt -s '1x2 MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/1x2/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo -e "${GREEN}done...${NC}"
+  clear
+}
+
+function abs_inst() {
+  echo -e "-----------------------------------"
+  echo -e "${GREEN}Install Absolute...${NC}   "
+  echo -e "-----------------------------------"
+  docker volume create --name abs
+  docker pull smai/abs_be_phantom:0.0.1
+  docker run -d --restart always -v abs:/root/phantom/conf:ro --name abs-backend smai/abs_be_phantom:0.0.1
+  docker pull smai/abs_fe_phantom:0.0.1
+  docker run -d --restart always -p 8081:8081 -v abs:/root/phantom-hosting/conf --name abs-frontend smai/abs_fe_phantom:0.0.1
+  ufw allow 8081/tcp comment "Absolute GUI" >/dev/null
+  echo "alias abs-conf='cd /var/lib/docker/volumes/abs/_data/'" >> ~/.bash_aliases
+  touch ~/.muttrc
+  echo 'set from="Absolute Masternode"' > ~/.muttrc
+  mutt -s "Absolute MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/abs/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "1 12 * * * mutt -s 'Absolute MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/abs/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo -e "${GREEN}done...${NC}"
+  clear
+}
+
+function aias_inst() {
+  echo -e "-----------------------------------"
+  echo -e "${GREEN}Install Aias...${NC}   "
+  echo -e "-----------------------------------"
+  docker volume create --name aias
+  docker pull smai/aias_be_phantom:0.0.1
+  docker run -d --restart always -v aias /root/phantom/conf:ro --name aias-backend smai/aias_be_phantom:0.0.1
+  docker pull smai/aias_fe_phantom:0.0.1
+  docker run -d --restart always -p 8082:8082 -v aias:/root/phantom-hosting/conf --name aias-frontend smai/aias_fe_phantom:0.0.1
+  ufw allow 8082/tcp comment "Aias GUI" >/dev/null
+  echo "alias aias-conf='cd /var/lib/docker/volumes/aias/_data/'" >> ~/.bash_aliases
+  touch ~/.muttrc
+  echo 'set from="Aias Masternode"' > ~/.muttrc
+  mutt -s "Aias MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/aias/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "1 12 * * * mutt -s 'Aias MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/aias/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo -e "${GREEN}done...${NC}"
+  clear
+}
+
 function xbi_inst() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install BitcoinIncognito...${NC}   "
@@ -114,6 +180,33 @@ function information() {
   echo -e "${RED}Please follow the WiKi how to use it.${NC}"
   echo -e ""
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+}
+
+#1x2
+function abs() {
+clear
+mail_address
+1x2_inst
+information
+exit 0
+}
+
+#Absolute
+function abs() {
+clear
+mail_address
+abs_inst
+information
+exit 0
+}
+
+#Aias
+function abs() {
+clear
+mail_address
+aias_inst
+information
+exit 0
 }
 
 #Bitcoin Incognito
