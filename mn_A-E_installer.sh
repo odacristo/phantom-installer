@@ -48,7 +48,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "1x2")
-            1x2
+            "1x2"
             ;;
         "Absolute")
             abs
@@ -56,7 +56,7 @@ do
         "Aias")
             aias
             ;;			
-		"Bare")
+        "Bare")
             break
             ;;
         "Bitcoin-Incognito")
@@ -95,7 +95,7 @@ function bare() {
   clear
 }
 
-function 1x2_inst() {
+function "1x2"_inst() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install 1x2...${NC}   "
   echo -e "-----------------------------------"
@@ -139,7 +139,7 @@ function aias_inst() {
   echo -e "-----------------------------------"
   docker volume create --name aias
   docker pull smai/aias_be_phantom:0.0.1
-  docker run -d --restart always -v aias /root/phantom/conf:ro --name aias-backend smai/aias_be_phantom:0.0.1
+  docker run -d --restart always -v aias:/root/phantom/conf:ro --name aias-backend smai/aias_be_phantom:0.0.1
   docker pull smai/aias_fe_phantom:0.0.1
   docker run -d --restart always -p 8082:8082 -v aias:/root/phantom-hosting/conf --name aias-frontend smai/aias_fe_phantom:0.0.1
   ufw allow 8082/tcp comment "Aias GUI" >/dev/null
