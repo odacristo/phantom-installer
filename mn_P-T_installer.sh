@@ -43,16 +43,12 @@ echo -e "${NC}"
 echo -e "${GREEN}Welcome to the Phantom Masternode Installation${NC}"
 echo -e ""
 PS3='Please enter your choice: '
-options=("Northern" "KnowYourDeveloper" "Exit")
+options=("Trittium" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Northern")
+        "Trittium")
             break
-            ;;
-        "KnowYourDeveloper")
-            kydc
-            ;;
         "Exit")
             exit 0
             ;;
@@ -67,40 +63,21 @@ function mail_address() {
 clear
 }
 
-function northern() {
+function trittium() {
   echo -e "-----------------------------------"
-  echo -e "${GREEN}Install Northern...${NC}   "
+  echo -e "${GREEN}Install Trittium...${NC}   "
   echo -e "-----------------------------------"
-  docker volume create --name northern
-  docker pull smai/northern_be_phantom:0.0.1
-  docker run -d --restart always -v northern:/root/phantom/conf:ro --name northern-backend smai/northern_be_phantom:0.0.1
-  docker pull smai/northern_fe_phantom:0.0.1
-  docker run -d --restart always -p 8080:8080 -v northern:/root/phantom-hosting/conf --name northern-frontend smai/northern_fe_phantom:0.0.1
-  ufw allow 8080/tcp comment "Northern GUI" >/dev/null
-  echo "alias northern-conf='cd /var/lib/docker/volumes/northern/_data/'" >> ~/.bash_aliases
+  docker volume create --name trtt
+  docker pull smai/trtt_be_phantom:0.0.1
+  docker run -d --restart always -v trtt:/root/phantom/conf:ro --name trtt-backend smai/trtt_be_phantom:0.0.1
+  docker pull smai/trtt_fe_phantom:0.0.1
+  docker run -d --restart always -p 8123:8123 -v trtt:/root/phantom-hosting/conf --name trtt-frontend smai/trtt_fe_phantom:0.0.1
+  ufw allow 8123/tcp comment "Trittium GUI" >/dev/null
+  echo "alias trtt-conf='cd /var/lib/docker/volumes/trtt/_data/'" >> ~/.bash_aliases
   touch ~/.muttrc
-  echo 'set from="Northern Masternode"' > ~/.muttrc
-  mutt -s "Northern MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null
-  crontab -l | { cat; echo "* 12 * * * mutt -s 'Northern MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/northern/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
-  echo -e "${GREEN}done...${NC}"
-  clear
-}
-
-function kydc_inst() {
-  echo -e "-----------------------------------"
-  echo -e "${GREEN}Install KYDC...${NC}   "
-  echo -e "-----------------------------------"
-  docker volume create --name kydc
-  docker pull smai/kydc_be_phantom:0.0.1
-  docker run -d --restart always -v kydc:/root/phantom/conf:ro --name kydc-backend smai/kydc_be_phantom:0.0.1
-  docker pull smai/kydc_fe_phantom:0.0.1
-  docker run -d --restart always -p 8105:8105 -v kydc:/root/phantom-hosting/conf --name kydc-frontend smai/kydc_fe_phantom:0.0.1
-  ufw allow 8105/tcp comment "KYDC GUI" >/dev/null
-  echo "alias kydc-conf='cd /var/lib/docker/volumes/kydc/_data/'" >> ~/.bash_aliases
-  touch ~/.muttrc
-  echo 'set from="KYDC Masternode"' > ~/.muttrc
-  mutt -s "KYDC MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/kydc/_data/masternode.txt < /dev/null
-  crontab -l | { cat; echo "* 12 * * * mutt -s 'KYDC MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/kydc/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
+  echo 'set from="Trittium Masternode"' > ~/.muttrc
+  mutt -s "Trittium MN Backup" $MAIL_ADDRESS -a /var/lib/docker/volumes/trtt/_data/masternode.txt < /dev/null
+  crontab -l | { cat; echo "* 12 * * * mutt -s 'Trittium MN Backup' "$MAIL_ADDRESS" -a /var/lib/docker/volumes/trtt/_data/masternode.txt < /dev/null >/dev/null 2>&1"; } | crontab -
   echo -e "${GREEN}done...${NC}"
   clear
 }
@@ -116,16 +93,9 @@ function information() {
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 }
 
-#Northern
+#Trittium
 clear
 mail_address
-northern
-information
-exit 0
-
-#KYDC
-clear
-mail_address
-kydc_inst
+trittium
 information
 exit 0
