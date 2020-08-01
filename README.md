@@ -34,9 +34,20 @@ GOSS: GgfoFv2JaJjh8TnPYkoYM9dEBJVjossBt3
 * Bare
 * Bitcoin Incognito
 
+## Masternodes F - J
+
+* Galilel
+* GoByte
+* IQcash
+
 ## Masternodes K - O
 
+* Know Your Developer
 * Northern
+
+## Masternodes P - T
+
+* Trittium
 
 # Setup
 
