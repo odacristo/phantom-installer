@@ -115,7 +115,7 @@ function iqcash_inst() {
   docker volume create --name iq
   docker pull smai/iq_be_phantom:0.0.1
   docker run -d --restart always -v iq:/root/phantom/conf:ro --name iq-backend smai/iq_be_phantom:0.0.1
-  docker pull smai/gbx_iq_phantom:0.0.1
+  docker pull smai/iq_fe_phantom:0.0.1
   docker run -d --restart always -p 8104:8104 -v iq:/root/phantom-hosting/conf --name iq-frontend smai/iq_fe_phantom:0.0.1
   ufw allow 8104/tcp comment "IQcash GUI" >/dev/null
   echo "alias iq-conf='cd /var/lib/docker/volumes/iq/_data/'" >> ~/.bash_aliases
