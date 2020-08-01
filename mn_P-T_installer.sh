@@ -94,6 +94,7 @@ function information() {
 }
 
 #Trittium
+start_inst
 clear
 mail_address
 trittium
