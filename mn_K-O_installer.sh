@@ -117,11 +117,13 @@ function information() {
 }
 
 #KYDC
+function kydc() {
 clear
 mail_address
 kydc_inst
 information
 exit 0
+}
 
 #Northern
 clear
