@@ -118,6 +118,7 @@ function information() {
 
 #Northern
 clear
+start_inst
 mail_address
 northern
 information
