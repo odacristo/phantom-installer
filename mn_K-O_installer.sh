@@ -116,17 +116,17 @@ function information() {
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 }
 
+#KYDC
+clear
+mail_address
+kydc_inst
+information
+exit 0
+
 #Northern
 clear
 start_inst
 mail_address
 northern
-information
-exit 0
-
-#KYDC
-clear
-mail_address
-kydc_inst
 information
 exit 0
