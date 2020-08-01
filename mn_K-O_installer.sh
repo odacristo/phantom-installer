@@ -106,7 +106,7 @@ function kydc_inst() {
 }
 
 function information() {
-  rm /root/*installer.sh >/dev/null 2>&1
+  rm *installer.sh >/dev/null 2>&1
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   echo -e "${GREEN}The Masternode installation was successfull! Good job!${NC}"
   echo -e "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -126,8 +126,8 @@ exit 0
 }
 
 #Northern
-clear
 start_inst
+clear
 mail_address
 northern
 information
