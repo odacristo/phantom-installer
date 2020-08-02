@@ -74,9 +74,8 @@ function galilel() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install Galilel...${NC}   "
   echo -e "-----------------------------------"
-  docker volume create --name gali
   docker pull smai/galilel_be_phantom:0.0.1
-  docker run -d --restart always -v gali:/root/phantom/conf:ro --name gali-backend smai/gali_be_phantom:0.0.1
+  docker run -d --restart always -v gali:/go/src/phantom/conf:ro --name gali-backend smai/gali_be_phantom:0.0.1
   docker pull smai/gali_fe_phantom:0.0.1
   docker run -d --restart always -p 8101:8101 -v gali:/root/phantom-hosting/conf --name gali-frontend smai/gali_fe_phantom:0.0.1
   ufw allow 8101/tcp comment "Galilel GUI" >/dev/null
