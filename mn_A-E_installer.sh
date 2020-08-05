@@ -120,7 +120,7 @@ function abs_inst() {
   echo -e "-----------------------------------"
   docker volume create --name abs
   docker pull smai/abs_be_phantom:0.0.1
-  docker run -d --restart always -v abs:/root/phantom/conf:ro --name abs-backend smai/abs_be_phantom:0.0.1
+  docker run -d --restart always -v abs:/go/src/phantom/conf:ro --name abs-backend smai/abs_be_phantom:0.0.1
   docker pull smai/abs_fe_phantom:0.0.1
   docker run -d --restart always -p 8081:8081 -v abs:/root/phantom-hosting/conf --name abs-frontend smai/abs_fe_phantom:0.0.1
   ufw allow 8081/tcp comment "Absolute GUI" >/dev/null
@@ -158,7 +158,7 @@ function xbi_inst() {
   echo -e "-----------------------------------"
   docker volume create --name xbi
   docker pull smai/xbi_be_phantom:0.0.1
-  docker run -d --restart always -v xbi:/root/phantom/conf:ro --name xbi-backend smai/xbi_be_phantom:0.0.1
+  docker run -d --restart always -v xbi:/go/src/phantom/conf:ro --name xbi-backend smai/xbi_be_phantom:0.0.1
   docker pull smai/xbi_fe_phantom:0.0.1
   docker run -d --restart always -p 8089:8089 -v xbi:/root/phantom-hosting/conf --name xbi-frontend smai/xbi_fe_phantom:0.0.1
   ufw allow 8084/tcp comment "Bitcoin Incognito GUI" >/dev/null

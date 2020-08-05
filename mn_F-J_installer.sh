@@ -74,6 +74,7 @@ function galilel() {
   echo -e "-----------------------------------"
   echo -e "${GREEN}Install Galilel...${NC}   "
   echo -e "-----------------------------------"
+  docker volume create --name gali
   docker pull smai/galilel_be_phantom:0.0.1
   docker run -d --restart always -v gali:/go/src/phantom/conf:ro --name gali-backend smai/gali_be_phantom:0.0.1
   docker pull smai/gali_fe_phantom:0.0.1
